@@ -1,0 +1,35 @@
+name: 'ishqa11_transform'
+version: '1.0.0'
+config-version: 2
+
+# Profile connection link for Snowflake Data Warehouse
+profile: 'ishqa11_snowflake_profile'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# The Medallion Architecture Blueprint Configurations
+models:
+  ishqa11_transform:
+    # 1. Bronze Layer: Raw Ingestion Landing View
+    bronze:
+      +materialized: view
+      +schema: bronze
+
+  # 2. Silver Layer: Enterprise Cleaned and Deduplicated Table
+    silver:
+      +materialized: table
+      +schema: silver
+
+    # 3. Gold Layer: High-Performance Analytics Table for Business KPIs
+    gold:
+      +materialized: table
+      +schema: gold

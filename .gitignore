@@ -1,0 +1,22 @@
+# Python tracking
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Terraform state files
+*.tfstate
+*.tfstate.backup
+.terraform/
+*.tfvars
+*.tfvars.json
+
+# IDE / System files
+.DS_Store
+.idea/
+.vscode/
+*.log

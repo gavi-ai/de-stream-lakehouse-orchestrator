@@ -1,0 +1,13 @@
+ishqa11_snowflake_profile:
+  outputs:
+    prod:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: ACCOUNTADMIN
+      database: ISHQA11_PROD_DB
+      warehouse: ISHQA11_TRANSFORM_WH
+      schema: BRONZE
+      threads: 4
+  target: prod
