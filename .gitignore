@@ -1,22 +1,40 @@
-# Python tracking
-__pycache__/
-*.py[cod]
-*$py.class
-.env
+# ==========================================
+# Gavi's Jatt 2.0 Enterprise DE Filter
+# ==========================================
+
+# Local Python Virtual Environment (Sabs bada package filter)
+de_env/
+venv/
 .venv/
 env/
-venv/
-ENV/
 
-# Terraform state files
-*.tfstate
-*.tfstate.backup
-.terraform/
-*.tfvars
-*.tfvars.json
+# Python caching patterns
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
 
-# IDE / System files
+# dbt Logs, targets, and local user profiles
+logs/
+target/
+dbt_modules/
+dbt_packages/
+# CRITICAL: Local profiles lock out (Never leak connection configurations!)
+profiles.yml
+
+# OS specific temporary files (Mac special junk codes)
 .DS_Store
-.idea/
-.vscode/
-*.log
+.AppleDouble
+.LSOverride
+Thunbs.db
+
+# Local environment variables keys
+.env
+.env.local
+# Terraform local state and binaries cache block
+.terraform/
+terraform/.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
